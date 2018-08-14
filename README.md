@@ -1,4 +1,4 @@
-# football-club
+# Arsenal Football Club clone for Cape town city
 Fun expo project for a football club
 
 1. Expo
