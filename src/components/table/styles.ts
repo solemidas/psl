@@ -28,19 +28,19 @@ export const Header = styled.View`
 `;
 
 export const Content = styled.View`
-    flex: 1;
+  flex: 1;
 `;
 
 export const Column = styled.View`
-    flex: ${({size}: IColumnStyleProps) => size ? size : COLUMN_DEFAULT_SIZE};
-    margin-vertical: 10;
-    padding-horizontal: 10;
+  flex: ${({size}: IColumnStyleProps) => size ? size : COLUMN_DEFAULT_SIZE};
+  padding-vertical: 15;
+  padding-horizontal: 10;
 `;
 
 export const Row = styled.View`
-    flex: 1;
-    flex-direction: row;
-    background-color: ${({ active }: IRowStyleProps) => active ? '#F1F1F1' :  Colors.white};
-    border-bottom-color: #DDD;
-    border-bottom-width: 1;
+  flex: 1;
+  flex-direction: row;
+  background-color: ${({ active }: IRowStyleProps) => active ? '#F1F1F1' :  Colors.white};
+  border-bottom-color: #DDD;
+  border-bottom-width: 1;
 `;

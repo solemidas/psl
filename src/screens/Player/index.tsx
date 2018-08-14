@@ -50,7 +50,7 @@ export class PlayerScreen extends React.PureComponent<IProps, IState> {
 
   private renderItem = ({ item }: any) => (
     <Card>
-      <Card.Video uri={item.url}/>
+      <Card.Video uri={item.url} image={item.image}/>
       <Card.Body>
         <Medium fontSize={Fonts.SIZE.h3} color={Colors.gold}>{item.title}</Medium>
         <Regular fontSize={Fonts.SIZE.medium} color={Colors.white}>{item.excerpt}</Regular>
