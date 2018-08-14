@@ -2,14 +2,13 @@
  * Provides the settings screen
  */
 import { Section } from 'components/section';
-import { upperCase } from 'lodash';
+import { reduce, upperCase } from 'lodash';
 import { DrawerLabel } from 'navigation/styles';
 import { IDrawerItemProps } from 'navigation/types';
 import * as React from 'react';
 import { SectionBase, SectionList, SectionListData } from 'react-native';
 import { BallClubIcon } from 'theme/icons';
-import { Centered, Fill } from 'theme/layout';
-import { Regular } from 'theme/typography';
+import { Fill } from 'theme/layout';
 
 import {
   Acknowledgements,
@@ -20,8 +19,8 @@ import {
 } from './sections';
 
 interface ISettingsSectionsProps {
-  data: React.ReactNode;
-  key: string;
+  content: React.ReactNode;
+  title: string;
 }
 
 type SectionType = SectionBase<ISettingsSectionsProps>;
@@ -50,13 +49,19 @@ export class SettingsScreen extends React.PureComponent<IProps, IState> {
 
   public constructor(props: IProps) {
     super(props);
-    const sections: SectionType[] = [
-      {key: 'Digital Membership', data: <DigitalMember />},
-      {key: 'Feedback', data: <Feedback />},
-      {key: 'Acknowledgements', data: <Acknowledgements />},
-      {key: 'Privacy Policy', data: <PrivacyPolicy />},
-      {key: 'Code Libraries', data: <Libraries />},
+    const dataSource: ISettingsSectionsProps[] = [
+      {title: 'Digital Membership', content: <DigitalMember />},
+      {title: 'Feedback', content: <Feedback />},
+      {title: 'Acknowledgements', content: <Acknowledgements />},
+      {title: 'Privacy Policy', content: <PrivacyPolicy />},
+      {title: 'Code Libraries', content: <Libraries />},
     ];
+    const sections = reduce(dataSource, (acc: SectionType[], next, index) => {
+        acc.push({ key: next.title, data: [next], });
+
+        return acc;
+    // tslint:disable-next-line:align
+    }, []);
     this.state = { sections };
   }
 
@@ -75,7 +80,7 @@ export class SettingsScreen extends React.PureComponent<IProps, IState> {
     );
   }
 
-  private keyExtractor =  (item: ISettingsSectionsProps) => item.key;
+  private keyExtractor =  (item: ISettingsSectionsProps) => item.title;
 
   private renderHeaderItem = (info: { section: SectionListData<ISettingsSectionsProps> }) => (
     <Section.Header>
