@@ -1,5 +1,6 @@
-# Arsenal Football Club clone for Cape town city
-Fun expo project for a football club
+# Arsenal football club app clone
+This is the arsenal football club app clone but for cape town city fc.
+Using:
 
 1. Expo
 2. React Native
