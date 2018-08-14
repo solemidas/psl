@@ -1,4 +1,4 @@
-# Arsenal football club app clone
+# Arsenal FC app clone
 This is the arsenal football club app clone but for cape town city fc.
 Using:
 
